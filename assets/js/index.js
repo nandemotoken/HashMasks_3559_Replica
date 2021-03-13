@@ -28,7 +28,7 @@ async function loadmm_matic(){
     replica_contract = await new ethers.Contract( Address , abi , signer );
 //    window.alert(replica_contract.address);
     const maticbalance = await signer.getBalance();
-    window.alert(maticbalance);
+//    window.alert(maticbalance);
     if ( maticbalance == 0 ){
         window.alert("maticを入手してください");
     }　else {
