@@ -32,10 +32,13 @@ async function loadmm_matic(){
     if ( maticbalance == 0 ){
         window.alert("maticを入手してください");
     }　else {
-        replica_contract.mint();
+        meta = await replica_contract.mint();
+//        window.alert(meta);
+        window.alert("トランザクションを送信しています。20秒程度お待ちください");
         filter = replica_contract.filters.Transfer(null, add);
         replica_contract.on(filter, (from, to, amount, event) => {
-        ans = window.confirm("OpenSeaでNFTレプリカを確認しましょう\n参考：https://opensea.io/account\n\n参考サイトを開きますか？");
+        $('transaction-popup').modal('hide');            
+        ans = window.confirm("OpenSeaでNFTレプリカを確認しましょう\n参考：https://opensea.io/account\n\nOpenSeaを開き、MetaMaskを接続しますか？\n(OpenSeaへの反映には数分時間がかかることがあります)");
         if(ans){ window.open("https://opensea.io/account"); }
 
     });
