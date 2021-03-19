@@ -24,6 +24,7 @@ async function loadmm_matic(){
     } else {
         ans = window.confirm("MetaMaskのネットワークをMaticに切り替えて下さい\n参考：https://note.com/ocurima/n/nd3191fdd7acd\n\n参考サイトを開きますか？");
         if(ans){ window.open("https://note.com/ocurima/n/nd3191fdd7acd"); }
+        return;
     }
     replica_contract = await new ethers.Contract( Address , abi , signer );
 //    window.alert(replica_contract.address);
