@@ -78,7 +78,7 @@ async function loadmm_gasfree(){
 
 function explorer(){
     //window.alert("matic")
-    ans = window.confirm("ブロックチェーンエクスプローラーを開く\n\nhttps://explorer-mainnet.maticvigil.com/tokens/" +Address + "/inventory\n\nNFTの発行状況を確認しますか？");
+    ans = window.confirm("ブロックチェーンエクスプローラーを開く\n\nhttps://explorer-mainnet.maticvigil.com/tokens/" +Address + "/inventory\n\nNFTの発行状況を確認しますか？(通常は1分以内に発行されます)");
         if(ans){ window.open("https://explorer-mainnet.maticvigil.com/tokens/" +Address + "/inventory"); }
 
 }
