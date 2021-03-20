@@ -50,7 +50,15 @@ async function loadmm_matic(){
 async function loadmm_gasfree(){
     $('#wallet-popup').modal('hide');
     if (typeof web3 == 'undefined'){
-        window.alert("metamaskをインストールしてください");
+        ans = window.confirm("metamaskをインストールしてください\nmetamaskのインストール方法を確認しますか？\n\n参考：https://note.com/ocurima/n/n29e1fd7ecbdd");
+        if (ans){
+            window.open("https://note.com/ocurima/n/n29e1fd7ecbdd");
+        }
+        return;
+    }
+    
+    ans = window.confirm("OKを押すと『NFTアートのレプリカ』がMetaMaskに送信されます")
+    if ( !ans ){
         return;
     }
     
@@ -59,7 +67,7 @@ async function loadmm_gasfree(){
     const signer = provider.getSigner();
     const add = await signer.getAddress();
 
-    let result = await $.getJSON( "http://118.27.118.39:3000/api/v1/0x427444759BB5D100CC7483E9E32bdB32DE577b06/"+ add + "/" )
+    let result = await $.getJSON( "https://mint.nandemotoken.com/api/v1/0x427444759BB5D100CC7483E9E32bdB32DE577b06/"+ add + "/" )
     console.log(result);
     $('#myinfo').modal('show')
     
@@ -75,6 +83,6 @@ function explorer(){
 
 function opensea(){
     //window.alert("opensea")
-    ans = window.confirm("OpenSeaでNFTレプリカを確認する\n\nhttps://opensea.io/account\n\nOpenSeaを開き、MetaMaskを接続しますか？\n(画像の反映などには数分時間がかかることがあります)");
+    ans = window.confirm("OpenSeaでNFTレプリカを確認する\n\nhttps://opensea.io/account\n\nOpenSeaを開き、MetaMaskを接続しますか？\n(反映には数分時間がかかります。NFTの画像は処理が終わると表示されます)");
         if(ans){ window.open("https://opensea.io/account"); }
 }
