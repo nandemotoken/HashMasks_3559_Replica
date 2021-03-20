@@ -1,3 +1,5 @@
+
+//contractAddress
 const Address = "0x427444759BB5D100CC7483E9E32bdB32DE577b06";
 let replica_contract;
 
